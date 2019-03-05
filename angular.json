@@ -30,7 +30,8 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/chart.js/dist/Chart.bundle.js"
+              "node_modules/chart.js/dist/Chart.bundle.js",
+              "node_modules/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.js"
             ],
             "es5BrowserSupport": true
           },

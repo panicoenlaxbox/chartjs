@@ -1,5 +1,6 @@
-import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit, ɵConsole } from '@angular/core';
 import * as Chart from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 @Component({
   selector: 'app-root',
@@ -28,7 +29,13 @@ export class AppComponent implements OnInit {
     gradient.addColorStop(0.000, 'rgba(127, 0, 63, 1.000)');
     gradient.addColorStop(1.000, 'rgba(255, 255, 255, 1.000)');
 
+    // https://chartjs-plugin-datalabels.netlify.com/guide/getting-started.html#registration
+    // https://chartjs-plugin-datalabels.netlify.com/guide/getting-started.html#configuration
     const options: Chart.ChartConfiguration = {
+      plugins: [
+        ChartDataLabels
+      ],
+
       type: 'line',
       data: {
         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -44,6 +51,13 @@ export class AppComponent implements OnInit {
         ],
       },
       options: {
+        plugins: {
+          datalabels: {
+            color: '#36A2EB',
+            padding: 5,
+            backgroundColor: '#000'
+          }
+        }
       }
     };
     const myChart = new Chart(context, options);
